@@ -18,12 +18,6 @@ python data_sourcer.py
 - YAML config files for all 6 workloads (`configs/` directory)
 - Local data generation matching paper's workload characteristics
 
-**Week 1 Milestones Complete**:
-- ✅ Scope finalization (Figure 6 replication focus)
-- ✅ Environment setup (Python, libraries, project structure)  
-- ✅ Dataset selection (6 workloads: bi, classic, geo, log, ml, core)
-- ✅ Define metrics and workloads (YAML configs created)
-
 **To Clean and Regenerate**:
 ```bash
 ./run.sh
