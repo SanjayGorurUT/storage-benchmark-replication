@@ -1,0 +1,25 @@
+workload:
+  name: "ml"
+  description: "Machine Learning workload with feature data"
+  
+data:
+  rows: 1000000
+  columns: 20
+  file: "data/ml_r1000000_c20.csv"
+  
+characteristics:
+  ndv_range: [0.1, 0.9]
+  null_range: [0.0, 0.1]
+  skew_types: ["uniform", "hotspot"]
+  
+queries:
+  - type: "full_scan"
+    description: "Scan all columns"
+  - type: "selection"
+    selectivity: [0.1, 0.3, 0.7]
+    description: "Feature selection queries"
+  - type: "aggregation"
+    functions: ["count", "sum", "avg", "std", "min", "max"]
+    description: "Statistical aggregations for ML"
+  - type: "correlation"
+    description: "Feature correlation analysis"
