@@ -1,0 +1,25 @@
+workload:
+  name: "geo"
+  description: "Geospatial workload with coordinate-like data"
+  
+data:
+  rows: 1000000
+  columns: 20
+  file: "data/geo_r1000000_c20.csv"
+  
+characteristics:
+  ndv_range: [0.01, 0.5]
+  null_range: [0.0, 0.2]
+  skew_types: ["uniform", "zipf"]
+  
+queries:
+  - type: "full_scan"
+    description: "Scan all columns"
+  - type: "selection"
+    selectivity: [0.05, 0.2, 0.8]
+    description: "Spatial range queries"
+  - type: "aggregation"
+    functions: ["count", "sum", "avg"]
+    description: "Geospatial aggregations"
+  - type: "range_query"
+    description: "Bounding box queries"

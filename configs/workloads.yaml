@@ -1,0 +1,25 @@
+benchmark:
+  name: "Storage Format Benchmark"
+  description: "VLDB 2023 Paper Replication - Columnar Storage Formats"
+  
+workloads:
+  - "core"
+  - "bi" 
+  - "classic"
+  - "geo"
+  - "log"
+  - "ml"
+  
+formats:
+  - "parquet"
+  - "orc"
+  
+metrics:
+  - "file_size"
+  - "full_scan_time"
+  - "selection_latency"
+  - "compression_ratio"
+  
+output:
+  results_dir: "results"
+  figures_dir: "figures"

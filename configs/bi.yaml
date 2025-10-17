@@ -1,0 +1,26 @@
+workload:
+  name: "bi"
+  description: "Business Intelligence workload with high cardinality and skew"
+  
+data:
+  rows: 1000000
+  columns: 20
+  file: "data/bi_r1000000_c20.csv"
+  
+characteristics:
+  ndv_range: [0.001, 0.5]
+  null_range: [0.0, 0.4]
+  skew_types: ["zipf", "hotspot"]
+  
+queries:
+  - type: "full_scan"
+    description: "Scan all columns"
+  - type: "selection"
+    selectivity: [0.01, 0.1, 0.5]
+    description: "Highly selective BI queries"
+  - type: "aggregation"
+    functions: ["count", "sum", "avg", "std"]
+    description: "Statistical aggregations"
+  - type: "groupby"
+    columns: [2, 5, 8]
+    description: "Group by operations"

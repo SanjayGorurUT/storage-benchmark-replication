@@ -12,13 +12,11 @@ python data_sourcer.py
 
 ## Current Status
 **Working**: 
-- `core` workload generation using paper's generator (1M rows, 20 columns)
-- Data preprocessing to Parquet format
+- All 6 workloads generated locally (1M rows, 20 columns each)
+- Data preprocessing to Parquet format for all workloads
 - Basic validation framework
-**Not Working**:
-- `bi`, `classic`, `geo`, `log`, `ml` workloads fail due to directory creation issues in paper's generator
-- CloudFront URL (`d3m9osc9baovkk.cloudfront.net`) is down (DNS resolution fails)
-- Alternative dataset URLs return 404 errors
+- YAML config files for all 6 workloads (`configs/` directory)
+- Local data generation matching paper's workload characteristics
 
 **To Clean and Regenerate**:
 ```bash

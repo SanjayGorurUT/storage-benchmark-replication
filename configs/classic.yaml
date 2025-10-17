@@ -1,0 +1,25 @@
+workload:
+  name: "classic"
+  description: "Classic database workload with uniform distribution"
+  
+data:
+  rows: 1000000
+  columns: 20
+  file: "data/classic_r1000000_c20.csv"
+  
+characteristics:
+  ndv_range: [0.1, 0.9]
+  null_range: [0.0, 0.1]
+  skew_types: ["uniform", "hotspot"]
+  
+queries:
+  - type: "full_scan"
+    description: "Scan all columns"
+  - type: "selection"
+    selectivity: [0.1, 0.3, 0.7]
+    description: "Traditional selection queries"
+  - type: "aggregation"
+    functions: ["count", "sum", "avg", "min", "max"]
+    description: "Basic aggregations"
+  - type: "join"
+    description: "Join operations (if multiple tables)"

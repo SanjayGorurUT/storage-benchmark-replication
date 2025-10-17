@@ -1,0 +1,25 @@
+workload:
+  name: "log"
+  description: "Log analysis workload with timestamp and categorical data"
+  
+data:
+  rows: 1000000
+  columns: 20
+  file: "data/log_r1000000_c20.csv"
+  
+characteristics:
+  ndv_range: [0.001, 0.3]
+  null_range: [0.0, 0.15]
+  skew_types: ["zipf", "hotspot"]
+  
+queries:
+  - type: "full_scan"
+    description: "Scan all columns"
+  - type: "selection"
+    selectivity: [0.01, 0.05, 0.2]
+    description: "Log filtering queries"
+  - type: "aggregation"
+    functions: ["count", "sum"]
+    description: "Log statistics"
+  - type: "time_range"
+    description: "Time-based queries"
