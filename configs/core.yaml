@@ -1,0 +1,23 @@
+workload:
+  name: "core"
+  description: "Core workload with balanced characteristics"
+  
+data:
+  rows: 1000000
+  columns: 20
+  file: "data/core_r1000000_c20.csv"
+  
+characteristics:
+  ndv_range: [0.01, 0.9]
+  null_range: [0.0, 0.3]
+  skew_types: ["uniform", "zipf"]
+  
+queries:
+  - type: "full_scan"
+    description: "Scan all columns"
+  - type: "selection"
+    selectivity: [0.1, 0.5, 0.9]
+    description: "Filter queries with varying selectivity"
+  - type: "aggregation"
+    functions: ["count", "sum", "avg", "min", "max"]
+    description: "Aggregate operations"
