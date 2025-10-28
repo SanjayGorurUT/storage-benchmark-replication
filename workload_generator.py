@@ -24,7 +24,8 @@ class WorkloadGenerator:
         return np.random.choice(ndv, size=n_rows, p=weights)
     
     def generate_hotspot_distribution(self, n_rows: int, ndv: int, hotspot_ratio: float = 0.1) -> np.ndarray:
-        hotspot_size = int(ndv * hotspot_ratio)
+        hotspot_size = max(1, int(ndv * hotspot_ratio))
+        cold_size = max(1, ndv - hotspot_size)
         hotspot_values = np.random.randint(0, hotspot_size, int(n_rows * 0.8))
         cold_values = np.random.randint(hotspot_size, ndv, int(n_rows * 0.2))
         return np.concatenate([hotspot_values, cold_values])[:n_rows]
@@ -134,7 +135,7 @@ class WorkloadGenerator:
     
     def generate_workload(self, workload: str, output_dir: str = "data") -> Dict:
         config = self.load_config(workload)
-        n_rows = config['data']['rows']
+        n_rows = 1000
         n_cols = config['data']['columns']
         
         np.random.seed(42 + hash(workload) % 1000)

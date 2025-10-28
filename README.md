@@ -1,4 +1,4 @@
-# Storage Format Benchmark - Data Sourcing
+# Storage Format Benchmark
 
 ## Setup
 ```bash
@@ -7,27 +7,15 @@ pip install -r requirements.txt
 
 ## Usage
 ```bash
-python data_sourcer.py
+python workload_generator.py
 ```
 
 ## Current Status
-**Working**: 
-- All 6 workloads generated locally (1M rows, 20 columns each)
-- Data preprocessing to Parquet format for all workloads
-- Basic validation framework
-- YAML config files for all 6 workloads (`configs/` directory)
-- Local data generation matching paper's workload characteristics
-
-**To Clean and Regenerate**:
-```bash
-./run.sh
-```
-
-**To View Generated Parquet Files**:
-```bash
-python -c "import pandas as pd; df = pd.read_parquet('data/core_r1000000_c20_processed.parquet'); print('Shape:', df.shape); print(df.head())"
-```
+- Workload generator with NDV, skew, and sortedness controls
+- All 6 workloads (core, bi, classic, geo, log, ml) generated
+- Distribution validation against paper specifications
+- 1000 rows × 20 columns per workload (~0.1MB Parquet files)
 
 ## Requirements
 - Python 3.7+
-- pandas, pyarrow, numpy, requests (see requirements.txt)
+- pandas, pyarrow, numpy, scipy, pyyaml
