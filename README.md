@@ -3,8 +3,9 @@
 ## Project Status
 - ✅ Workload generation with distribution validation
 - ✅ Synthetic data for all 6 workloads (core, bi, classic, geo, log, ml)
-- 🚧 Performance benchmarking infrastructure
-- 🚧 ORC format support
+- ✅ Performance benchmarking infrastructure
+- ✅ ORC format support
+- ✅ Preliminary results generation
 - ⏳ Figure 6 reproduction
 
 ## Quick Start
@@ -14,6 +15,9 @@ pip install -r requirements.txt
 
 # Run full pipeline
 python main.py
+
+# Generate preliminary results (recommended)
+python generate_preliminary_results.py
 
 # Or run individual phases
 python data_sourcer.py          # Generate base data
@@ -33,5 +37,6 @@ python benchmark_runner.py      # Run performance tests
 ├── format_converter.py     # Parquet ↔ ORC conversion
 ├── benchmark_runner.py     # Performance measurement
 ├── visualizer.py           # Figure 6 reproduction
+├── generate_preliminary_results.py  # Generate preliminary results & summary
 └── main.py                 # Full pipeline orchestration
 ```
