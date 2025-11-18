@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  benchmark:
+    build: .
+    volumes:
+      - ./data:/app/data
+      - ./results:/app/results
+      - ./figures:/app/figures
+      - ./configs:/app/configs
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: python generate_preliminary_results.py
+

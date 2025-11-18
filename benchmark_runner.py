@@ -9,10 +9,21 @@ import pyarrow.orc as orc
 
 
 class BenchmarkRunner:
-    def __init__(self, data_dir: str = "data", results_dir: str = "results"):
+    def __init__(self, data_dir: str = "data", results_dir: str = "results", environment: str = None):
         self.data_dir = data_dir
         self.results_dir = results_dir
         os.makedirs(results_dir, exist_ok=True)
+        
+        if environment is None:
+            self.environment = self._detect_environment()
+        else:
+            self.environment = environment
+    
+    def _detect_environment(self) -> str:
+        if os.path.exists("/.dockerenv") or os.environ.get("container") == "docker":
+            return "docker"
+        else:
+            return "bare-metal"
 
     def measure_file_size(self, filepath: str) -> float:
         return os.path.getsize(filepath) / (1024 * 1024)
@@ -81,6 +92,7 @@ class BenchmarkRunner:
         results = {
             'workload': workload,
             'format': format_type,
+            'environment': self.environment,
             'file_size_mb': self.measure_file_size(filepath),
             'full_scan': self.measure_full_scan(filepath),
             'selection_queries': []
@@ -118,8 +130,14 @@ class BenchmarkRunner:
             if workload_results:
                 all_results[workload] = workload_results
 
-        output_file = os.path.join(self.results_dir, "benchmark_results.json")
+        metadata = {
+            'environment': self.environment,
+            'timestamp': time.strftime('%Y-%m-%d %H:%M:%S'),
+            'results': all_results
+        }
+        
+        output_file = os.path.join(self.results_dir, f"benchmark_results_{self.environment}.json")
         with open(output_file, 'w') as f:
-            json.dump(all_results, f, indent=2)
+            json.dump(metadata, f, indent=2)
 
         return all_results
