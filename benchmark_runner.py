@@ -9,9 +9,10 @@ import pyarrow.orc as orc
 
 
 class BenchmarkRunner:
-    def __init__(self, data_dir: str = "data", results_dir: str = "results", environment: str = None):
+    def __init__(self, data_dir: str = "data", results_dir: str = "results", environment: str = None, row_count: int = 1000):
         self.data_dir = data_dir
         self.results_dir = results_dir
+        self.row_count = row_count
         os.makedirs(results_dir, exist_ok=True)
         
         if environment is None:
@@ -79,10 +80,10 @@ class BenchmarkRunner:
         """Benchmark a workload for a specific format (parquet or orc)."""
         if format_type == "parquet":
             filepath = os.path.join(self.data_dir,
-                                    f"{workload}_r1000_c20_generated.parquet")
+                                    f"{workload}_r{self.row_count}_c20_generated.parquet")
         elif format_type == "orc":
             filepath = os.path.join(self.data_dir,
-                                   f"{workload}_r1000_c20_generated.orc")
+                                   f"{workload}_r{self.row_count}_c20_generated.orc")
         else:
             raise ValueError(f"Unsupported format: {format_type}")
 
