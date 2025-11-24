@@ -20,15 +20,20 @@ def main():
 
     print("\n=== Phase 4: Benchmarking ===")
     runner = BenchmarkRunner()
-    parquet_results = runner.run_all_benchmarks()
-
-    # TODO: Run ORC benchmarks similarly
+    all_results = runner.run_all_benchmarks(formats=["parquet", "orc"])
+    
+    # Extract parquet and orc results for visualization
+    parquet_results = {w: r.get("parquet", {}) for w, r in all_results.items() if "parquet" in r}
+    orc_results = {w: r.get("orc", {}) for w, r in all_results.items() if "orc" in r}
 
     print("\n=== Phase 5: Visualization ===")
     visualizer = BenchmarkVisualizer()
-    # visualizer.plot_file_sizes(parquet_results, orc_results)
-    # visualizer.plot_full_scan_performance(parquet_results, orc_results)
-    # visualizer.plot_selection_latency(parquet_results, orc_results)
+    if parquet_results and orc_results:
+        visualizer.plot_file_sizes(parquet_results, orc_results)
+        visualizer.plot_full_scan_performance(parquet_results, orc_results)
+        visualizer.plot_selection_latency(parquet_results, orc_results)
+    else:
+        print("  Skipping visualization - missing results for one or both formats")
 
     print("\nBenchmark complete! Check results/ and figures/ directories.")
 
