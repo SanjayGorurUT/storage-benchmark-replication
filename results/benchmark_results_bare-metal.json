@@ -1,0 +1,390 @@
+{
+  "environment": "bare-metal",
+  "timestamp": "2025-11-24 22:45:50",
+  "results": {
+    "core": {
+      "parquet": {
+        "workload": "core",
+        "format": "parquet",
+        "environment": "bare-metal",
+        "file_size_mb": 47.541932106018066,
+        "full_scan": {
+          "mean_time_ms": 444.7063000057824,
+          "std_time_ms": 41.341902120518775,
+          "rows_per_sec": 1113094.1927145256
+        },
+        "selection_queries": [
+          {
+            "mean_time_ms": 0.42832500766962767,
+            "selectivity": 0.01,
+            "rows_selected": 0,
+            "column": "col_0"
+          },
+          {
+            "mean_time_ms": 0.19514999585226178,
+            "selectivity": 0.1,
+            "rows_selected": 0,
+            "column": "col_0"
+          },
+          {
+            "mean_time_ms": 72.83294160151854,
+            "selectivity": 0.5,
+            "rows_selected": 139592,
+            "column": "col_0"
+          }
+        ]
+      },
+      "orc": {
+        "workload": "core",
+        "format": "orc",
+        "environment": "bare-metal",
+        "file_size_mb": 66.58185577392578,
+        "full_scan": {
+          "mean_time_ms": 678.4040585975163,
+          "std_time_ms": 133.2403018605004,
+          "rows_per_sec": 729653.6536401734
+        },
+        "selection_queries": [
+          {
+            "mean_time_ms": 0.753783609252423,
+            "selectivity": 0.01,
+            "rows_selected": 0,
+            "column": "col_0"
+          },
+          {
+            "mean_time_ms": 0.23434980539605021,
+            "selectivity": 0.1,
+            "rows_selected": 0,
+            "column": "col_0"
+          },
+          {
+            "mean_time_ms": 60.22251638351008,
+            "selectivity": 0.5,
+            "rows_selected": 139592,
+            "column": "col_0"
+          }
+        ]
+      }
+    },
+    "bi": {
+      "parquet": {
+        "workload": "bi",
+        "format": "parquet",
+        "environment": "bare-metal",
+        "file_size_mb": 20.51244068145752,
+        "full_scan": {
+          "mean_time_ms": 352.62532519409433,
+          "std_time_ms": 81.92644228910275,
+          "rows_per_sec": 2835868.352477446
+        },
+        "selection_queries": [
+          {
+            "mean_time_ms": 0.5588498199358582,
+            "selectivity": 0.01,
+            "rows_selected": 0,
+            "column": "27"
+          },
+          {
+            "mean_time_ms": 0.34628318389877677,
+            "selectivity": 0.1,
+            "rows_selected": 0,
+            "column": "27"
+          },
+          {
+            "mean_time_ms": 67.56239980459213,
+            "selectivity": 0.5,
+            "rows_selected": 265922,
+            "column": "27"
+          }
+        ]
+      },
+      "orc": {
+        "workload": "bi",
+        "format": "orc",
+        "environment": "bare-metal",
+        "file_size_mb": 75.5243148803711,
+        "full_scan": {
+          "mean_time_ms": 411.7184581933543,
+          "std_time_ms": 53.00997930035085,
+          "rows_per_sec": 2428841.7973487433
+        },
+        "selection_queries": [
+          {
+            "mean_time_ms": 0.38160840049386024,
+            "selectivity": 0.01,
+            "rows_selected": 0,
+            "column": "27"
+          },
+          {
+            "mean_time_ms": 0.3362581832334399,
+            "selectivity": 0.1,
+            "rows_selected": 0,
+            "column": "27"
+          },
+          {
+            "mean_time_ms": 67.66055800253525,
+            "selectivity": 0.5,
+            "rows_selected": 265922,
+            "column": "27"
+          }
+        ]
+      }
+    },
+    "classic": {
+      "parquet": {
+        "workload": "classic",
+        "format": "parquet",
+        "environment": "bare-metal",
+        "file_size_mb": 188.7145872116089,
+        "full_scan": {
+          "mean_time_ms": 1418.4780334006064,
+          "std_time_ms": 68.72837688870081,
+          "rows_per_sec": 704980.2509825546
+        },
+        "selection_queries": [
+          {
+            "mean_time_ms": 0.7588413776829839,
+            "selectivity": 0.01,
+            "rows_selected": 44,
+            "column": "2539"
+          },
+          {
+            "mean_time_ms": 13.057233404833823,
+            "selectivity": 0.1,
+            "rows_selected": 15784,
+            "column": "2539"
+          },
+          {
+            "mean_time_ms": 13.543766597285867,
+            "selectivity": 0.5,
+            "rows_selected": 15784,
+            "column": "2539"
+          }
+        ]
+      },
+      "orc": {
+        "workload": "classic",
+        "format": "orc",
+        "environment": "bare-metal",
+        "file_size_mb": 223.5672197341919,
+        "full_scan": {
+          "mean_time_ms": 1745.7082418259233,
+          "std_time_ms": 54.59135902192096,
+          "rows_per_sec": 572832.8342850986
+        },
+        "selection_queries": [
+          {
+            "mean_time_ms": 0.7279586046934128,
+            "selectivity": 0.01,
+            "rows_selected": 44,
+            "column": "2539"
+          },
+          {
+            "mean_time_ms": 12.684966588858515,
+            "selectivity": 0.1,
+            "rows_selected": 15784,
+            "column": "2539"
+          },
+          {
+            "mean_time_ms": 12.555416615214199,
+            "selectivity": 0.5,
+            "rows_selected": 15784,
+            "column": "2539"
+          }
+        ]
+      }
+    },
+    "geo": {
+      "parquet": {
+        "workload": "geo",
+        "format": "parquet",
+        "environment": "bare-metal",
+        "file_size_mb": 106.40127372741699,
+        "full_scan": {
+          "mean_time_ms": 937.7657750039361,
+          "std_time_ms": 20.11300610349403,
+          "rows_per_sec": 1066363.2931110144
+        },
+        "selection_queries": [
+          {
+            "mean_time_ms": 0.9803083958104253,
+            "selectivity": 0.01,
+            "rows_selected": 0,
+            "column": "86057"
+          },
+          {
+            "mean_time_ms": 0.35605839220806956,
+            "selectivity": 0.1,
+            "rows_selected": 0,
+            "column": "86057"
+          },
+          {
+            "mean_time_ms": 0.37200001534074545,
+            "selectivity": 0.5,
+            "rows_selected": 0,
+            "column": "86057"
+          }
+        ]
+      },
+      "orc": {
+        "workload": "geo",
+        "format": "orc",
+        "environment": "bare-metal",
+        "file_size_mb": 162.1271390914917,
+        "full_scan": {
+          "mean_time_ms": 1494.975816400256,
+          "std_time_ms": 209.5482224850963,
+          "rows_per_sec": 668906.4726196656
+        },
+        "selection_queries": [
+          {
+            "mean_time_ms": 0.47346638748422265,
+            "selectivity": 0.01,
+            "rows_selected": 0,
+            "column": "86057"
+          },
+          {
+            "mean_time_ms": 0.3198085934855044,
+            "selectivity": 0.1,
+            "rows_selected": 0,
+            "column": "86057"
+          },
+          {
+            "mean_time_ms": 0.446891610044986,
+            "selectivity": 0.5,
+            "rows_selected": 0,
+            "column": "86057"
+          }
+        ]
+      }
+    },
+    "log": {
+      "parquet": {
+        "workload": "log",
+        "format": "parquet",
+        "environment": "bare-metal",
+        "file_size_mb": 17.054584503173828,
+        "full_scan": {
+          "mean_time_ms": 371.77369999699295,
+          "std_time_ms": 27.08839563759384,
+          "rows_per_sec": 2689805.653299543
+        },
+        "selection_queries": [
+          {
+            "mean_time_ms": 0.3262664075009525,
+            "selectivity": 0.01,
+            "rows_selected": 0,
+            "column": "13"
+          },
+          {
+            "mean_time_ms": 0.37820839788764715,
+            "selectivity": 0.1,
+            "rows_selected": 0,
+            "column": "13"
+          },
+          {
+            "mean_time_ms": 55.003949999809265,
+            "selectivity": 0.5,
+            "rows_selected": 190941,
+            "column": "13"
+          }
+        ]
+      },
+      "orc": {
+        "workload": "log",
+        "format": "orc",
+        "environment": "bare-metal",
+        "file_size_mb": 137.77058029174805,
+        "full_scan": {
+          "mean_time_ms": 513.7507584062405,
+          "std_time_ms": 98.9578183534629,
+          "rows_per_sec": 1946467.1995856522
+        },
+        "selection_queries": [
+          {
+            "mean_time_ms": 0.4167333710938692,
+            "selectivity": 0.01,
+            "rows_selected": 0,
+            "column": "13"
+          },
+          {
+            "mean_time_ms": 0.3206249908544123,
+            "selectivity": 0.1,
+            "rows_selected": 0,
+            "column": "13"
+          },
+          {
+            "mean_time_ms": 57.28679980384186,
+            "selectivity": 0.5,
+            "rows_selected": 190941,
+            "column": "13"
+          }
+        ]
+      }
+    },
+    "ml": {
+      "parquet": {
+        "workload": "ml",
+        "format": "parquet",
+        "environment": "bare-metal",
+        "file_size_mb": 74.66099834442139,
+        "full_scan": {
+          "mean_time_ms": 656.3198499963619,
+          "std_time_ms": 100.14205684244607,
+          "rows_per_sec": 1523645.8260489048
+        },
+        "selection_queries": [
+          {
+            "mean_time_ms": 4.052008013240993,
+            "selectivity": 0.01,
+            "rows_selected": 8692,
+            "column": "32"
+          },
+          {
+            "mean_time_ms": 23.627158405724913,
+            "selectivity": 0.1,
+            "rows_selected": 59033,
+            "column": "32"
+          },
+          {
+            "mean_time_ms": 176.64139999542385,
+            "selectivity": 0.5,
+            "rows_selected": 499110,
+            "column": "32"
+          }
+        ]
+      },
+      "orc": {
+        "workload": "ml",
+        "format": "orc",
+        "environment": "bare-metal",
+        "file_size_mb": 127.11721897125244,
+        "full_scan": {
+          "mean_time_ms": 797.7888331981376,
+          "std_time_ms": 143.93562641131882,
+          "rows_per_sec": 1253463.2704637542
+        },
+        "selection_queries": [
+          {
+            "mean_time_ms": 4.104791395366192,
+            "selectivity": 0.01,
+            "rows_selected": 8692,
+            "column": "32"
+          },
+          {
+            "mean_time_ms": 24.01038301177323,
+            "selectivity": 0.1,
+            "rows_selected": 59033,
+            "column": "32"
+          },
+          {
+            "mean_time_ms": 179.24621659331024,
+            "selectivity": 0.5,
+            "rows_selected": 499110,
+            "column": "32"
+          }
+        ]
+      }
+    }
+  }
+}

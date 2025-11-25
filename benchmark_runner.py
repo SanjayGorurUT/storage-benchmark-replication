@@ -100,7 +100,11 @@ class BenchmarkRunner:
         }
 
         df = self._read_file(filepath)
-        test_column = 'col_0'
+        
+        if 'col_0' in df.columns:
+            test_column = 'col_0'
+        else:
+            test_column = df.columns[0]
 
         for selectivity in [0.01, 0.1, 0.5]:
             sel_results = self.measure_selection_query(
