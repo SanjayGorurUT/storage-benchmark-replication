@@ -16,8 +16,9 @@ def convert_to_orc(parquet_file: str) -> str:
 
 
 class FormatConverter:
-    def __init__(self, data_dir: str = "data"):
+    def __init__(self, data_dir: str = "data", row_count: int = 1000):
         self.data_dir = data_dir
+        self.row_count = row_count
 
     def convert_all_workloads(self):
         workloads = ["core", "bi", "classic", "geo", "log", "ml"]
@@ -25,7 +26,7 @@ class FormatConverter:
         for workload in workloads:
             parquet_file = os.path.join(
                 self.data_dir,
-                f"{workload}_r1000_c20_generated.parquet"
+                f"{workload}_r{self.row_count}_c20_generated.parquet"
             )
             if os.path.exists(parquet_file):
                 orc_file = convert_to_orc(parquet_file)
