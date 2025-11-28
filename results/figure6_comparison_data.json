@@ -1,0 +1,89 @@
+{
+  "our_results": {
+    "workloads": [
+      "bi",
+      "classic",
+      "geo",
+      "log",
+      "ml",
+      "core"
+    ],
+    "file_size_mb": {
+      "parquet": [
+        20.51,
+        188.71,
+        106.4,
+        17.05,
+        74.66,
+        47.54
+      ],
+      "orc": [
+        75.52,
+        223.57,
+        162.13,
+        137.77,
+        127.12,
+        66.58
+      ]
+    },
+    "full_scan_time_sec": {
+      "parquet": [
+        0.353,
+        1.418,
+        0.938,
+        0.372,
+        0.656,
+        0.445
+      ],
+      "orc": [
+        0.412,
+        1.746,
+        1.495,
+        0.514,
+        0.798,
+        0.678
+      ]
+    },
+    "select_time_ms": {
+      "parquet": [
+        0.35,
+        13.06,
+        0.36,
+        0.38,
+        23.63,
+        0.2
+      ],
+      "orc": [
+        0.34,
+        12.68,
+        0.32,
+        0.32,
+        24.01,
+        0.23
+      ]
+    }
+  },
+  "paper_results": {
+    "workloads": [
+      "bi",
+      "classic",
+      "geo",
+      "log",
+      "ml",
+      "core"
+    ],
+    "file_size_mb": {
+      "parquet": null,
+      "orc": null
+    },
+    "full_scan_time_sec": {
+      "parquet": null,
+      "orc": null
+    },
+    "select_time_ms": {
+      "parquet": null,
+      "orc": null
+    }
+  },
+  "note": "Fill in paper_results with values extracted from Figure 6 in the PDF"
+}
